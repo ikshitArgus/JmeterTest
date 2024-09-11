@@ -198,10 +198,10 @@
       <com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup guiclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroupGui" testclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup" testname="LogInLLoadPrices -UAT">
         <elementProp name="ThreadGroup.main_controller" elementType="com.blazemeter.jmeter.control.VirtualUserController"/>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-        <stringProp name="TargetLevel">5</stringProp>
-        <stringProp name="RampUp">1</stringProp>
-        <stringProp name="Steps">5</stringProp>
-        <stringProp name="Hold">2</stringProp>
+        <stringProp name="TargetLevel">750</stringProp>
+        <stringProp name="RampUp">5</stringProp>
+        <stringProp name="Steps">15</stringProp>
+        <stringProp name="Hold">15</stringProp>
         <stringProp name="LogFilename"></stringProp>
         <stringProp name="Iterations"></stringProp>
         <stringProp name="Unit">M</stringProp>
