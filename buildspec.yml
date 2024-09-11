@@ -1,0 +1,31 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing dependencies...
+      - wget https://corretto.aws/downloads/latest/amazon-corretto-11-x64-linux-jdk.tar.gz
+      - tar -xzf amazon-corretto-11-x64-linux-jdk.tar.gz
+      - mv amazon-corretto-11.* amazon-corretto-11
+      - export JAVA_HOME=$(pwd)/amazon-corretto-11
+      - export PATH=$JAVA_HOME/bin:$PATH
+      - java -version
+      - echo Installing JMeter...
+      - wget https://downloads.apache.org//jmeter/binaries/apache-jmeter-5.6.3.tgz
+      - tar -xvzf apache-jmeter-5.6.3.tgz
+      - export PATH=$(pwd)/apache-jmeter-5.6.3/bin:$PATH
+      - jmeter -v
+      - echo Installing Python...
+      - apt-get update
+      - apt-get install -y python3 python3-pip
+      - apt-get update && apt-get install -y jq
+
+  build:
+    commands:
+      - echo Running JMeter test...
+      - TIMESTAMP=$(date +%Y%m%d%H%M%S)
+      - jmeter -n -t TestPlans/PetStore-End-to-End-Flow.jmx  -l results_${TIMESTAMP}.jtl
+
+  post_build:
+    commands:
+      - echo Build completed successfully.
