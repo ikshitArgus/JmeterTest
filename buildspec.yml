@@ -20,7 +20,7 @@ phases:
     commands:
       - echo Running JMeter test...
       - TIMESTAMP=$(date +%Y%m%d%H%M%S)
-      - jmeter -n -t TestPlans/PetStore-End-to-End-Flow.jmx  -l results_${TIMESTAMP}.jtl -g results_${TIMESTAMP}.jtl -o results_${TIMESTAMP}
+      - jmeter -n -t TestPlans/PetStore-End-to-End-Flow.jmx  -l results_${TIMESTAMP}.jtl
 
   post_build:
     commands:
@@ -29,7 +29,6 @@ phases:
 artifacts:
   files:
     - 'results_${TIMESTAMP}.jtl'
-    - 'results_${TIMESTAMP}/*'
 
 
     
